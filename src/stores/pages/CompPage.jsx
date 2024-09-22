@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { fridgeData } from '../data/fridge'
+import { computerData } from '../data/computers'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 
-const FridgePage = () => {
+const CompPage = () => {
 
     const [selectedProduct, setSelectedProduct] = useState([])
 
@@ -17,7 +17,7 @@ const FridgePage = () => {
 
 
     const filteredProduct = selectedProduct.length===0?
-        fridgeData : fridgeData.filter((orange)=>selectedProduct.includes(orange.brand))
+        computerData : computerData.filter((orange)=>selectedProduct.includes(orange.company))
 
 return (
 <>
@@ -26,15 +26,15 @@ return (
     
 <div className="pro-selected">
 
-{fridgeData.map((phone)=>{
+{computerData.map((phone)=>{
     return(
         <div className='pro-input'>
             <label >
                 <input type="checkbox" 
-                checked = {selectedProduct.includes(phone.brand)}
-                onChange={()=>companyHandler(phone.brand)}
+                checked = {selectedProduct.includes(phone.company)}
+                onChange={()=>companyHandler(phone.company)}
                 />
-                {phone.brand}
+                {phone.company}
             </label>
         </div>
     )
@@ -47,13 +47,13 @@ return (
         return(
             <div>
 
-            <Link to={`/fridge/${item.id}`}>
+            <Link to={`/computers/${item.id}`}>
                 <div className="pageImg">
                     <img src={item.image} alt="" />
                 </div>
             </Link>
                 <div className="proModel">
-                    {item.brand}, {item.model}
+                    {item.company}, {item.model}
                 </div>
             </div>
         )
@@ -65,4 +65,4 @@ return (
   )
 }
 
-export default FridgePage
+export default CompPage

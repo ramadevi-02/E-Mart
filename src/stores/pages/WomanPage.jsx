@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { fridgeData } from '../data/fridge'
+import { womanData } from '../data/woman'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 
-const FridgePage = () => {
+const WomanPage = () => {
 
     const [selectedProduct, setSelectedProduct] = useState([])
 
@@ -17,7 +17,7 @@ const FridgePage = () => {
 
 
     const filteredProduct = selectedProduct.length===0?
-        fridgeData : fridgeData.filter((orange)=>selectedProduct.includes(orange.brand))
+        womanData : womanData.filter((orange)=>selectedProduct.includes(orange.brand))
 
 return (
 <>
@@ -26,7 +26,7 @@ return (
     
 <div className="pro-selected">
 
-{fridgeData.map((phone)=>{
+{womanData.map((phone)=>{
     return(
         <div className='pro-input'>
             <label >
@@ -47,7 +47,7 @@ return (
         return(
             <div>
 
-            <Link to={`/fridge/${item.id}`}>
+            <Link to={`/woman/${item.id}`}>
                 <div className="pageImg">
                     <img src={item.image} alt="" />
                 </div>
@@ -65,4 +65,4 @@ return (
   )
 }
 
-export default FridgePage
+export default WomanPage
